@@ -1,0 +1,4 @@
+runtime: java11
+entrypoint: java -Xmx64m -jar weather-service-local.jar
+resources:
+  memory_gb: 2.0

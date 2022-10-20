@@ -1,0 +1,11 @@
+steps:
+- name: "gradle:6.8.3-jdk11-openj9"
+  entrypoint: gradle
+  args: ["clean", "build"]
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy", "--appyaml", "/workspace/src/main/appengine/app.yml"]
+timeout: "1600s"
+logsBucket: 'gs://gcp-hackathon-cicd-build-logs'
+options:
+  logging: GCS_ONLY
